@@ -16,13 +16,3 @@ func _physics_process(_delta):
 	else:
 		$AnimationPlayer.stop()
 		velocity = Vector2.ZERO
-		
-	#if horny_doge_distance > 200:
-		#$AnimationPlayer.play("walk")
-		#velocity = horny_doge_direction * -100
-		#move_and_slide()
-	#else:
-		#$AnimationPlayer.stop()
-		#velocity = Vector2.ZERO
-		
-

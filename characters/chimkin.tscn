@@ -50,7 +50,6 @@ script = ExtResource("1_o82v6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_b6mli")
-disabled = true
 
 [node name="chimkin_sprite" type="Sprite2D" parent="."]
 light_mask = 2

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal chimkin_got
+
 @onready var chimkin = get_node("/root/main/chimkin")
 @onready var animation_player = $AnimationPlayer
 
@@ -12,6 +14,7 @@ func _physics_process(_delta):
 		move_and_slide()
 	else:
 		velocity = Vector2.ZERO
+		emit_signal("chimkin_got")
 	
 func take_damage():
 	velocity = Vector2.ZERO
