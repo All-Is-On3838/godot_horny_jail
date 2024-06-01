@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhhygicgvkojf"]
+
+[ext_resource type="Texture2D" uid="uid://db0n4gwajoad3" path="res://assets/cozy_farm.png" id="1_7tr6x"]
+[ext_resource type="Script" path="res://characters/chimkin.gd" id="1_o82v6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b6mli"]
+radius = 18.9737
+
+[sub_resource type="Animation" id="Animation_rf1e4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("chimkin_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [117]
+}
+
+[sub_resource type="Animation" id="Animation_afdxi"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("chimkin_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [117, 118, 120, 119]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wk7lm"]
+_data = {
+"RESET": SubResource("Animation_rf1e4"),
+"walk": SubResource("Animation_afdxi")
+}
+
+[node name="chimkin" type="CharacterBody2D"]
+script = ExtResource("1_o82v6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_b6mli")
+disabled = true
+
+[node name="chimkin_sprite" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+texture_filter = 1
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("1_7tr6x")
+hframes = 13
+vframes = 10
+frame = 117
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wk7lm")
+}

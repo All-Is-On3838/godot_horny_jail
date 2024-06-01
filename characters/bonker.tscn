@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://clm8bcn8kow06"]
+
+[ext_resource type="Script" path="res://characters/bonker.gd" id="1_agq4u"]
+[ext_resource type="Texture2D" uid="uid://c7ik7o23mnsc0" path="res://assets/clean/bonker.png" id="2_im7fb"]
+[ext_resource type="PackedScene" uid="uid://cucd0ai6bgdj5" path="res://characters/bat.tscn" id="3_d0bdk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ql1y"]
+radius = 41.0
+height = 94.0
+
+[node name="bonker" type="CharacterBody2D"]
+script = ExtResource("1_agq4u")
+
+[node name="bonker_sprite" type="Sprite2D" parent="."]
+position = Vector2(-3.8147e-06, -1.14441e-05)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("2_im7fb")
+
+[node name="bat" parent="bonker_sprite" instance=ExtResource("3_d0bdk")]
+position = Vector2(100, 119.444)
+scale = Vector2(2.77778, 2.77778)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_8ql1y")

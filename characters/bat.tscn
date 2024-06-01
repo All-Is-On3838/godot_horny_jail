@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://cucd0ai6bgdj5"]
+
+[ext_resource type="Script" path="res://characters/bat.gd" id="1_26qqk"]
+[ext_resource type="Texture2D" uid="uid://umw6puy6vqp4" path="res://assets/clean/bat_animation.png" id="2_1wvoi"]
+
+[sub_resource type="Animation" id="Animation_xdald"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../bat_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BodyCollisionShape:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6pdum"]
+resource_name = "bonk"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../bat_sprite:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BodyCollisionShape:disabled")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lhaod"]
+_data = {
+"RESET": SubResource("Animation_xdald"),
+"bonk": SubResource("Animation_6pdum")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lllki"]
+radius = 7.07059
+height = 56.259
+
+[node name="bat" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_26qqk")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="bat_sprite" type="Sprite2D" parent="."]
+position = Vector2(45.5, -49)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_1wvoi")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Marker2D")
+libraries = {
+"": SubResource("AnimationLibrary_lhaod")
+}
+
+[node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(63, -34)
+rotation = 1.10971
+shape = SubResource("CapsuleShape2D_lllki")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
