@@ -152,3 +152,9 @@ unique_name_in_owner = true
 position = Vector2(-119, -97)
 rotation = 0.00423134
 scale = Vector2(1, 0.936543)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
