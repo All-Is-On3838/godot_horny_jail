@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfbmei3rnseg4"]
+[gd_scene load_steps=8 format=3 uid="uid://cfbmei3rnseg4"]
 
 [ext_resource type="PackedScene" uid="uid://clm8bcn8kow06" path="res://characters/bonker.tscn" id="1_hw8lv"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_uscki"]
 [ext_resource type="Texture2D" uid="uid://db0n4gwajoad3" path="res://assets/cozy_farm.png" id="2_wpmj1"]
 [ext_resource type="PackedScene" uid="uid://dhhygicgvkojf" path="res://characters/chimkin.tscn" id="3_6e8nx"]
-[ext_resource type="PackedScene" uid="uid://c85kehpfpbgmy" path="res://characters/horny_doge.tscn" id="4_uj32u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ci3w5"]
 texture = ExtResource("2_wpmj1")
@@ -118,7 +118,14 @@ texture = ExtResource("2_wpmj1")
 [sub_resource type="TileSet" id="TileSet_qrcw5"]
 sources/0 = SubResource("TileSetAtlasSource_ci3w5")
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="Curve2D" id="Curve2D_o3gp7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -119, -97, 0, 0, 0, 0, 1209, -91.3808, 0, 0, 0, 0, 1205, 759, 0, 0, 0, 0, -115, 744.015, 0, 0, 0, 0, -119, -97)
+}
+point_count = 5
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_uscki")
 
 [node name="bonker" parent="." instance=ExtResource("1_hw8lv")]
 unique_name_in_owner = true
@@ -135,5 +142,13 @@ metadata/_edit_lock_ = true
 [node name="chimkin" parent="." instance=ExtResource("3_6e8nx")]
 position = Vector2(420, 356)
 
-[node name="horny_doge" parent="." instance=ExtResource("4_uj32u")]
-position = Vector2(91, 452)
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(0, 6.57243)
+scale = Vector2(1, 1.06776)
+curve = SubResource("Curve2D_o3gp7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-119, -97)
+rotation = 0.00423134
+scale = Vector2(1, 0.936543)

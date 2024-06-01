@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
-@onready var bonker = get_node("/root/Node2D/bonker")
-@onready var horny_doge = get_node("/root/Node2D/horny_doge")
+@onready var bonker = get_node("/root/main/bonker")
 @onready var chimkin_sprite = $chimkin_sprite
-
+	
 func _physics_process(_delta):
 	#var horny_doge_direction = global_position.direction_to(horny_doge.global_position)
 	#var horny_doge_distance = global_position.distance_to(horny_doge.global_position)

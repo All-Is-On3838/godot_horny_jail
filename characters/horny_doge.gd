@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var health = 1
-@onready var chimkin = get_node("/root/Node2D/chimkin")
+@onready var chimkin = get_node("/root/main/chimkin")
 
 func _physics_process(_delta):
 	var direction = global_position.direction_to(chimkin.global_position)
