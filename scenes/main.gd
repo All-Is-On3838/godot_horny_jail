@@ -19,6 +19,4 @@ func _on_chimkin_got():
 
 func _on_doge_down():
 	Globals.score += 1
-	print(Globals.score)
-	score_label.text = "Score: %s" % Globals.score
-	print(score_label.text)
+	score_label.text = "%s" % Globals.score
