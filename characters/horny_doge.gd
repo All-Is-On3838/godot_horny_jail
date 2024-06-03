@@ -10,7 +10,7 @@ func _physics_process(_delta):
 	var distance = global_position.distance_to(chimkin.global_position)
 	
 	if distance > 50:
-		velocity = direction * 150
+		velocity = direction * 100
 		move_and_slide()
 	else:
 		velocity = Vector2.ZERO

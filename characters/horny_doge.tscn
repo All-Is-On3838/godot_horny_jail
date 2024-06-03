@@ -3,8 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://cttai3u1s3tjg" path="res://assets/clean/horny_animation.png" id="1_ay0ww"]
 [ext_resource type="Script" path="res://characters/horny_doge.gd" id="1_kno0l"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_20r7b"]
-size = Vector2(77.2129, 79.8446)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3cykf"]
+radius = 34.0414
+height = 77.8705
 
 [sub_resource type="Animation" id="Animation_i30om"]
 length = 0.001
@@ -23,7 +24,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_7ohnt"]
 resource_name = "bonked"
-length = 0.3
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,7 +32,7 @@ tracks/0/path = NodePath("horny_sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.06, 0.14, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0, 1, 2, 3]
@@ -45,7 +46,7 @@ _data = {
 
 [node name="horny_doge" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_kno0l")
 
 [node name="horny_sprite" type="Sprite2D" parent="."]
@@ -55,9 +56,9 @@ texture = ExtResource("1_ay0ww")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, -0.5)
+position = Vector2(-4, 1)
 rotation = 0.0150819
-shape = SubResource("RectangleShape2D_20r7b")
+shape = SubResource("CapsuleShape2D_3cykf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

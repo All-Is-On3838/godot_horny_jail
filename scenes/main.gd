@@ -13,5 +13,14 @@ func _on_timer_timeout():
 	spawn_mob()
 
 func _on_chimkin_got():
-	%GameOver.visible = true
-	get_tree().paused = true
+	print("game over")
+	get_tree().change_scene_to_file("res://scenes/UI/pause_menu.tscn")
+
+#func _on_try_again_button_down():
+	#print("try again pressed")
+	#get_tree().reload_current_scene()
+#
+#
+#func _on_return_to_menu_button_down():
+	#print("return to menu")
+	#get_tree().change_scene_to_file("res://scenes/UI/menu.tscn")

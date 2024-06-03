@@ -1,0 +1,114 @@
+[gd_scene load_steps=11 format=3 uid="uid://cbi004os3wv5t"]
+
+[ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_77dne"]
+[ext_resource type="FontFile" uid="uid://g667fnkrhuy6" path="res://assets/babydoll_font/Baby Doll.otf" id="2_r0d1f"]
+[ext_resource type="Texture2D" uid="uid://dtgheor3iykje" path="res://assets/full gif/frame1.png" id="3_0glbw"]
+[ext_resource type="Texture2D" uid="uid://ba37wspwea1cr" path="res://assets/full gif/frame2.png" id="4_auecu"]
+[ext_resource type="Texture2D" uid="uid://eq3wyglwiquw" path="res://assets/full gif/frame3.png" id="5_wid1i"]
+[ext_resource type="Texture2D" uid="uid://bn7g2qymbonhr" path="res://assets/full gif/frame4.png" id="6_xm1pm"]
+[ext_resource type="Texture2D" uid="uid://jvlf6dvcnvmd" path="res://assets/full gif/frame5.png" id="7_yclpd"]
+[ext_resource type="Texture2D" uid="uid://cykl5rgh7nbu8" path="res://assets/full gif/frame6.png" id="8_184g8"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_thvvb"]
+frames = 6
+frame_0/texture = ExtResource("3_0glbw")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("4_auecu")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("5_wid1i")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("6_xm1pm")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("7_yclpd")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("8_184g8")
+frame_5/duration = 0.1
+
+[sub_resource type="Theme" id="Theme_gx1g3"]
+
+[node name="main menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_77dne")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="separator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_r0d1f")
+theme_override_font_sizes/font_size = 100
+text = "GO TO HORNY JAIL"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AnimatedTexture_thvvb")
+stretch_mode = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="start" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_gx1g3")
+theme_override_fonts/font = ExtResource("2_r0d1f")
+theme_override_font_sizes/font_size = 40
+text = "start"
+
+[node name="options" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_r0d1f")
+theme_override_font_sizes/font_size = 40
+text = "options"
+
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_r0d1f")
+theme_override_font_sizes/font_size = 40
+text = "quit
+"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/options" to="." method="_on_options_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/quit" to="." method="_on_quit_button_down"]
