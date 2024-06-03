@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://wvwpwjx13xhk"]
+
+[ext_resource type="Script" path="res://scenes/UI/player_ui.gd" id="1_51af6"]
+[ext_resource type="FontFile" uid="uid://g667fnkrhuy6" path="res://assets/babydoll_font/Baby Doll.otf" id="1_k5ku8"]
+
+[node name="PlayerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_51af6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+offset_right = 119.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("1_k5ku8")
+theme_override_font_sizes/font_size = 40
+text = "Score: "

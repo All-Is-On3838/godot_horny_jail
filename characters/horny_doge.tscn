@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://characters/horny_doge.gd" id="1_kno0l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3cykf"]
-radius = 34.0414
-height = 77.8705
+radius = 34.04
+height = 77.87
 
 [sub_resource type="Animation" id="Animation_i30om"]
 length = 0.001

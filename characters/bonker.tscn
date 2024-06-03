@@ -13,15 +13,17 @@ collision_mask = 0
 script = ExtResource("1_agq4u")
 
 [node name="bonker_sprite" type="Sprite2D" parent="."]
-position = Vector2(-3.8147e-06, -1.14441e-05)
+position = Vector2(-39, -38)
 scale = Vector2(0.36, 0.36)
 texture = ExtResource("2_im7fb")
 
 [node name="bat" parent="bonker_sprite" instance=ExtResource("3_d0bdk")]
+z_index = 1
 position = Vector2(100, 119.444)
 scale = Vector2(2.77778, 2.77778)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 4
 visibility_layer = 4
+position = Vector2(-41, -36)
 shape = SubResource("CapsuleShape2D_8ql1y")

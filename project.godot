@@ -17,13 +17,15 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://global.gd"
+Globals="*res://Globals.gd"
 
 [display]
 
 window/size/viewport_width=1080
 window/size/viewport_height=720
 window/stretch/mode="viewport"
+mouse_cursor/stretch/mode="disabled"
+mouse_cursor/main_scene=""
 
 [editor]
 

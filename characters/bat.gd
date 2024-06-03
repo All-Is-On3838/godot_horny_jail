@@ -26,9 +26,7 @@ func _input(event):
 	if event.is_action_pressed("attack"):
 		animation_player.play("bonk")
 		
-
 func _on_body_entered(body):
 	print("on body entered")
 	if body.has_method("take_damage"):
 		body.take_damage()
-

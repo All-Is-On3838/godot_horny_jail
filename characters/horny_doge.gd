@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal chimkin_got
+signal doge_down
 
 @onready var chimkin = get_node("/root/main/chimkin")
 @onready var animation_player = $AnimationPlayer
@@ -19,6 +20,9 @@ func _physics_process(_delta):
 func take_damage():
 	velocity = Vector2.ZERO
 	animation_player.play("bonked")
+	emit_signal("doge_down")
+	
+	
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "bonked":
